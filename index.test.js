@@ -44,9 +44,22 @@ describe('[Exercise 4] Counter', () => {
   beforeEach(() => {
     counter = new utils.Counter(3) // each test must start with a fresh couter
   })
-  // test('[6] the FIRST CALL of counter.countDown returns the initial count', () => {})
-  // test('[7] the SECOND CALL of counter.countDown returns the initial count minus one', () => {})
-  // test('[8] the count eventually reaches zero but does not go below zero', () => {})
+  test('[6] the FIRST CALL of counter.countDown returns the initial count', () => {
+    const expected = 3
+    expect(counter.countDown()).toBe(expected)
+  })
+  test('[7] the SECOND CALL of counter.countDown returns the initial count minus one', () => {
+    const expected = 2
+    counter.countDown()
+    expect(counter.countDown()).toBe(expected)
+  })
+  test('[8] the count eventually reaches zero but does not go below zero', () => {
+    const expected = 0
+    for (let i = 3; i > 0; i--) {
+      counter.countDown()
+    }
+    expect(counter.countDown()).toBe(expected)
+  })
 })
 
 describe('[Exercise 5] Seasons', () => {
