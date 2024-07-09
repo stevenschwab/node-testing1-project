@@ -11,7 +11,7 @@ function trimProperties(obj) {
   for (let key in obj) {
     trimmedObj[key] = obj[key].trim()
   }
-  
+
   return trimmedObj
 }
 
@@ -24,7 +24,11 @@ function trimProperties(obj) {
  * trimPropertiesMutation({ name: '  jane  ' }) // returns the object mutated in place { name: 'jane' }
  */
 function trimPropertiesMutation(obj) {
-  // ✨ implement
+  for (let key in obj) {
+    obj[key] = obj[key].trim()
+  }
+
+  return obj
 }
 
 /**
