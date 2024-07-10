@@ -59,6 +59,7 @@ describe('[Exercise 4] Counter', () => {
       counter.countDown()
     }
     expect(counter.countDown()).toBe(expected)
+    expect(counter.countDown()).toBe(expected)
   })
 })
 
@@ -67,12 +68,43 @@ describe('[Exercise 5] Seasons', () => {
   beforeEach(() => {
     seasons = new utils.Seasons() // each test must start with fresh seasons
   })
-  // test('[9] the FIRST call of seasons.next returns "summer"', () => {})
-  // test('[10] the SECOND call of seasons.next returns "fall"', () => {})
-  // test('[11] the THIRD call of seasons.next returns "winter"', () => {})
-  // test('[12] the FOURTH call of seasons.next returns "spring"', () => {})
-  // test('[13] the FIFTH call of seasons.next returns again "summer"', () => {})
-  // test('[14] the 40th call of seasons.next returns "spring"', () => {})
+  test('[9] the FIRST call of seasons.next returns "summer"', () => {
+    const expected = "summer"
+    expect(seasons.next()).toBe(expected)
+  })
+  test('[10] the SECOND call of seasons.next returns "fall"', () => {
+    const expected = "fall"
+    seasons.next()
+    expect(seasons.next()).toBe(expected)
+  })
+  test('[11] the THIRD call of seasons.next returns "winter"', () => {
+    const expected = "winter"
+    seasons.next()
+    seasons.next()
+    expect(seasons.next()).toBe(expected)
+  })
+  test('[12] the FOURTH call of seasons.next returns "spring"', () => {
+    const expected = "spring"
+    seasons.next()
+    seasons.next()
+    seasons.next()
+    expect(seasons.next()).toBe(expected)
+  })
+  test('[13] the FIFTH call of seasons.next returns again "summer"', () => {
+    const expected = "summer"
+    seasons.next()
+    seasons.next()
+    seasons.next()
+    seasons.next()
+    expect(seasons.next()).toBe(expected)
+  })
+  test('[14] the 40th call of seasons.next returns "spring"', () => {
+    const expected = "spring"
+    for (let i = 39; i > 0; i--) {
+      seasons.next()
+    }
+    expect(seasons.next()).toBe(expected)
+  })
 })
 
 describe('[Exercise 6] Car', () => {
